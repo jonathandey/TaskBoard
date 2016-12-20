@@ -1,0 +1,9 @@
+#!/bin/bash
+cd ../js/
+cat app.js > scripts.js
+cat controllers/*.js >> scripts.js
+cat services/*.js >> scripts.js
+cat directives/*.js >> scripts.js
+curl -X POST -s --data-urlencode 'input@scripts.js' https://javascript-minifier.com/raw > app.min.js
+rm scripts.js
+cd ../build/
