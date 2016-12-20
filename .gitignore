@@ -3,3 +3,8 @@ api/uploads/*
 tags
 .idea/*
 vendor/
+css/styles.min.css
+indexDev.html
+js/app.min.js
+lib/css/combined.min.css
+lib/libs.min.js

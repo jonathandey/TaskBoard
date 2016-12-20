@@ -11,7 +11,21 @@ cd ..
 cd build
 
 echo ' Compiling lib JS files...'
-./minify-libs
+cd ../lib/
+cat jquery-1.11.3.min.js > libs.js
+cat jquery-ui.min.js >> libs.js
+cat jquery.noty.min.js >> libs.js
+cat bootstrap.min.js >> libs.js
+cat angular.min.js >> libs.js
+cat angular-route.min.js >> libs.js
+cat angular-sanitize.min.js >> libs.js
+cat ng-context-menu.min.js >> libs.js
+cat marked.min.js >> libs.js
+cat spectrum.js >> libs.js
+cat prefixfree.min.js >> libs.js
+curl -X POST -s --data-urlencode 'input@libs.js' https://javascript-minifier.com/raw > libs.min.js
+rm libs.js
+cd ../build/
 
 echo ' Minifying lib CSS files...'
 cd ../lib/css/
@@ -24,7 +38,7 @@ rm combined.css
 cd ../../build/
 
 echo ' Compiling app JS files...'
-./minify-app
+./build-app-js
 
 echo ' Minifying app CSS files...'
 cd ../css/
