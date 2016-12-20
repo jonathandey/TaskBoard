@@ -6,7 +6,7 @@ AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css a
 </IfModule>
 
 <IfModule mod_expires.c>
-ExpiresActive On
+# ExpiresActive On
 ExpiresByType image/jpg "access 1 year"
 ExpiresByType image/jpeg "access 1 year"
 ExpiresByType image/gif "access 1 year"
