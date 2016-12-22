@@ -18,14 +18,14 @@
                         Due: {{ viewItem.due_date }}
                     </p>
                     <div class="description" data-ng-bind-html="marked(viewItem.description)"></div>
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 text-center" style="display: none;">
                         <p>Assigned To: <strong>{{ userNames[viewItem.assignee] }}</strong></p>
                     </div>
                     <div class="col-md-4 text-center">
                         <p data-ng-if="viewItem.category">Category: <strong>{{ categories[viewItem.category] }}</strong></p>
                     </div>
                     <div class="col-md-4 text-center">
-                        <p>Current Column: <strong>{{ viewItem.laneName }}</strong></p>
+                        <p>Assigned To: <strong>{{ viewItem.laneName }}</strong></p>
                     </div>
                 </div>
                 <div class="view-item-actions">

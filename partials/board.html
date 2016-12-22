@@ -65,7 +65,7 @@
                         </div>
                         <div class="description" data-ng-bind-html="marked(item.description)"></div>
                         <p class="assignee">
-                            <span data-ng-show="currentUser.options.showAssignee">
+                            <span data-ng-show="currentUser.options.showAssignee" style="display: none;">
                                 <span data-ng-if="userNames[item.assignee]">Assigned To: </span>
                                 {{ userNames[item.assignee] }}
                             </span>
