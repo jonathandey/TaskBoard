@@ -33,7 +33,7 @@ function ($scope, BoardService) {
             this.color = defaultColor;
             this.spectrum(); // Reset the color plugin to default as well.
             this.dueDate = null;
-            this.points = null;
+            this.points = 2;
             this.pointsError = false;
             var that = this;
             $('.itemModal').on('hidden.bs.modal', function (e) {

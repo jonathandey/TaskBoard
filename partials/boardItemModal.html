@@ -62,9 +62,13 @@
                            data-on-load-callback="itemFormData.datePicker">
                 </div>
                 <div class="form-group col-md-4" data-ng-class="{ 'has-error': itemFormData.pointsError }">
-                    <h5>Points</h5>
-                    <input class="form-control" type="number" min="0" data-ng-model="itemFormData.points"
-                           data-ng-disabled="itemFormData.isSaving">
+                    <h5>Priority</h5>
+                    <select data-ng-model="itemFormData.points" 
+                      class="form-control" data-ng-disabled="itemFormData.isSaving">
+                      <option value="3">High</option>
+                      <option value="2">Normal</option>
+                      <option value="1">Low</option>
+                    </select>
                 </div>
                 <div class="clearfix"></div>
             </div>

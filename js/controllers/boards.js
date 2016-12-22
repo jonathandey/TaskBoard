@@ -171,6 +171,20 @@ function ($scope, $routeParams, $location, $interval, $window,
                         $scope.laneNames[lane.id] = lane.name;
                         if (lane.ownItem) {
                             lane.ownItem.forEach(function(item) {
+                                item.priorityText = "Normal";
+
+                                switch(item.points) {
+                                    case '1':
+                                        item.priorityText = 'Low';
+                                    break;
+                                    case '2':
+                                        item.priorityText = 'Normal';
+                                    break;
+                                    case '3':
+                                        item.priorityText = 'High';
+                                    break;
+                                }
+
                                 var date = new Date(item.due_date),
                                     diff = date - Date.now();
                                 if (diff < 0) {
