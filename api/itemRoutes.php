@@ -16,6 +16,7 @@ $app->post('/boards/:id/items', function($id) use($app, $jsonResponse) {
             $item->dueDate = $data->dueDate;
             $item->points = $data->points;
             $item->position = getNextItemPosition($data->lane);
+            $item->created_at = new \DateTime();
 
             $board->xownLane[$data->lane]->xownItem[] = $item;
             R::store($board);

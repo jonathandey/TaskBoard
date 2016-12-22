@@ -78,7 +78,9 @@ function ($scope, BoardService) {
         },
         // Uses jQuery to set the datepicker.
         datePicker: function() {
-            $('#datepicker').datepicker();
+            $('#datepicker').datepicker({
+                dateFormat: 'dd/mm/yy'
+            });
         }
     };
     $scope.$parent.itemFormData = $scope.itemFormData;

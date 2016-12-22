@@ -14,6 +14,9 @@
             </div>
             <div class="modal-body">
                 <div class="view-item-details" style="background-color: {{ viewItem.color }}">
+                    <p class="due-date" data-ng-if="viewItem.created_at_text">
+                        Created: {{ viewItem.created_at_text }}
+                    </p>
                     <p class="due-date" data-ng-if="viewItem.due_date" data-ng-class="{'dateNear': viewItem.dateNear, 'datePast': viewItem.datePast}">
                         Due: {{ viewItem.due_date }}
                     </p>

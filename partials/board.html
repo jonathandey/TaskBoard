@@ -74,6 +74,10 @@
                                       title="{{ item.ownComment.length }} Comments"></span>
                                 <span data-ng-if="item.ownAttachment.length" class="fa fa-paperclip"
                                       title="{{ item.ownAttachment.length }} Attachments"></span>
+                                <span data-ng-if="item.created_at_text">
+                                    Created: {{ item.created_at_text }}
+                                </span>
+                                <br data-ng-if="item.created_at_text">
                                 <span data-ng-if="item.due_date" data-ng-class="{'dateNear': item.dateNear, 'datePast': item.datePast}">
                                     Due: {{ item.due_date }}
                                 </span>

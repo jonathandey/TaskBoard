@@ -193,6 +193,20 @@ function ($scope, $routeParams, $location, $interval, $window,
                                     item.dateNear = true;
                                 }
 
+                                item.created_at_text = ""
+
+                                if(item.created_at != null)
+                                {
+                                    var date = new Date(item.created_at);
+                                    var day = date.getDate();
+                                    var monthIndex = date.getMonth();
+                                    var year = date.getFullYear();
+
+                                    item.created_at_text = day + '/' + (monthIndex+1) + '/' + year;
+                                }
+
+                                console.log(item);
+
                                 item.position = parseInt(item.position);
                             });
                         }
