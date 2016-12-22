@@ -143,11 +143,19 @@ function ($scope, $routeParams, $location, $interval, $window,
     $scope.boardInterval = $interval($scope.loadBoards, 10000);
     $scope.$on('$destroy', function () { $interval.cancel($scope.boardInterval); });
 
+    var boardsOriginal = null;
     $scope.updateBoards = function(data) {
         // Don't update the boards if a position update is pending.
         if (0 !== updateCounter) {
             return;
         }
+
+        if(JSON.stringify(data) == boardsOriginal)
+        {
+            return;
+        }
+
+        boardsOriginal = JSON.stringify(data);
         $scope.boards = data.data;
         $scope.boardsLoaded = true;
 
