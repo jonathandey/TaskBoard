@@ -38,7 +38,7 @@ function sendEmail($email, $recipient, $subject, $body) {
     $mail->Subject = $subject;
     $mail->Body    = $body;
 
-    $mail->send();
+    // $mail->send();
 }
 
 function getNewBoardEmailBody($boardid, $username, $boardname) {
