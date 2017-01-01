@@ -1,7 +1,7 @@
 taskBoardControllers.controller('ItemFormBoardCtrl',
 ['$scope', 'BoardService',
 function ($scope, BoardService) {
-    var defaultColor = '#ffffe0';
+    var defaultColor = '#c3f4b5';
 
     $scope.itemFormData = {
         setFocus: false,
@@ -57,24 +57,24 @@ function ($scope, BoardService) {
         // Uses jQuery to close the modal and reset colorpicker.
         cancel: function() {
             $('.itemModal').modal('hide');
-            $('#spectrum').spectrum('hide');
-            $('#spectrum').spectrum('enable');
+            // $('#spectrum').spectrum('hide');
+            // $('#spectrum').spectrum('enable');
         },
         // Uses jQuery to set the colorpicker.
         spectrum: function(color) {
             color = color || defaultColor;
-            $('#spectrum').spectrum({
-                color: color,
-                allowEmpty: false,
-                localStorageKey: 'taskboard.colorPalette',
-                showPalette: true,
-                palette: [ ['#fff', '#ececec', '#ffffe0', '#ffe0fa', '#bee7f4', '#c3f4b5', '#debee8', '#ffdea9', '#ffbaba'] ],
-                showSelectionPalette: true,
-                showButtons: false,
-                showInput: true,
-                preferredFormat: 'hex3',
-                appendTo: '#addEdit'
-            });
+            // $('#spectrum').spectrum({
+            //     color: color,
+            //     allowEmpty: false,
+            //     localStorageKey: 'taskboard.colorPalette',
+            //     showPalette: true,
+            //     palette: [ ['#fff', '#ececec', '#ffffe0', '#ffe0fa', '#bee7f4', '#c3f4b5', '#debee8', '#ffdea9', '#ffbaba'] ],
+            //     showSelectionPalette: true,
+            //     showButtons: false,
+            //     showInput: true,
+            //     preferredFormat: 'hex3',
+            //     appendTo: '#addEdit'
+            // });
         },
         // Uses jQuery to set the datepicker.
         datePicker: function() {
@@ -87,7 +87,7 @@ function ($scope, BoardService) {
 
     $scope.submitItem = function (itemFormData) {
         itemFormData.isSaving = true;
-        $('#spectrum').spectrum('disable');
+        // $('#spectrum').spectrum('disable');
 
         itemFormData.titleError = false;
         if (itemFormData.title === '') {

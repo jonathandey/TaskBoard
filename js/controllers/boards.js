@@ -193,7 +193,7 @@ function ($scope, $routeParams, $location, $interval, $window,
                                     break;
                                 }
 
-                                var date = new Date(item.due_date),
+                                var date = moment(item.due_date, 'DD/MM/YYYY')._d,
                                     diff = date - Date.now();
                                 if (diff < 0) {
                                     item.datePast = true;
@@ -205,15 +205,10 @@ function ($scope, $routeParams, $location, $interval, $window,
 
                                 if(item.created_at != null)
                                 {
-                                    var date = new Date(item.created_at);
-                                    var day = date.getDate();
-                                    var monthIndex = date.getMonth();
-                                    var year = date.getFullYear();
+                                    var date = moment(item.created_at);
 
-                                    item.created_at_text = day + '/' + (monthIndex+1) + '/' + year;
+                                    item.created_at_text = date.format('DD/MM/YYYY');
                                 }
-
-                                console.log(item);
 
                                 item.position = parseInt(item.position);
                             });

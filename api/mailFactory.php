@@ -42,7 +42,8 @@ function sendEmail($email, $recipient, $subject, $body) {
 }
 
 function getNewBoardEmailBody($boardid, $username, $boardname) {
-    $message = file_get_contents('mail_templates/newBoard.html');
+    // $message = file_get_contents('mail_templates/newBoard.html');
+    $message = '';
     $message = str_replace('%hostname%', getServerHost(), $message);
     $message = str_replace('%boardid%', $boardid, $message);
     $message = str_replace('%username%', $username, $message);
@@ -52,7 +53,8 @@ function getNewBoardEmailBody($boardid, $username, $boardname) {
 }
 
 function getEditBoardEmailBody($boardid, $username, $boardname) {
-    $message = file_get_contents('mail_templates/editBoard.html');
+    // $message = file_get_contents('mail_templates/editBoard.html');
+    $message = '';
     $message = str_replace('%hostname%', getServerHost(), $message);
     $message = str_replace('%boardid%', $boardid, $message);
     $message = str_replace('%username%', $username, $message);
@@ -63,7 +65,8 @@ function getEditBoardEmailBody($boardid, $username, $boardname) {
 
 function getNewItemEmailBody($boardid, $username, $boardname, $title, $description, $assignee, $category, $dueDate, $points, $position)
 {
-    $message = file_get_contents('mail_templates/newItem.html');
+    // $message = file_get_contents('mail_templates/newItem.html');
+    $message = '';
     $message = str_replace('%hostname%', getServerHost(), $message);
     $message = str_replace('%boardid%', $boardid, $message);
     $message = str_replace('%username%', $username, $message);
@@ -81,7 +84,8 @@ function getNewItemEmailBody($boardid, $username, $boardname, $title, $descripti
 
 function getEditItemEmailBody($boardid, $username, $boardname, $title, $description, $assignee, $category, $dueDate, $points, $position)
 {
-    $message = file_get_contents('mail_templates/editItem.html');
+    // $message = file_get_contents('mail_templates/editItem.html');
+    $message = '';
     $message = str_replace('%hostname%', getServerHost(), $message);
     $message = str_replace('%boardid%', $boardid, $message);
     $message = str_replace('%username%', $username, $message);
@@ -99,7 +103,8 @@ function getEditItemEmailBody($boardid, $username, $boardname, $title, $descript
 
 function getNewCommentEmailBody($boardid, $username, $boardname, $title, $comment)
 {
-    $message = file_get_contents('mail_templates/newComment.html');
+    // $message = file_get_contents('mail_templates/newComment.html');
+    $message = '';
     $message = str_replace('%hostname%', getServerHost(), $message);
     $message = str_replace('%boardid%', $boardid, $message);
     $message = str_replace('%username%', $username, $message);
@@ -112,7 +117,8 @@ function getNewCommentEmailBody($boardid, $username, $boardname, $title, $commen
 
 function getEditCommentEmailBody($boardid, $username, $boardname, $title, $comment)
 {
-    $message = file_get_contents('mail_templates/editComment.html');
+    // $message = file_get_contents('mail_templates/editComment.html');
+    $message = '';
     $message = str_replace('%hostname%', getServerHost(), $message);
     $message = str_replace('%boardid%', $boardid, $message);
     $message = str_replace('%username%', $username, $message);
