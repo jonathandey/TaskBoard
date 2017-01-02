@@ -181,14 +181,14 @@ function ($scope, $routeParams, $location, $interval, $window,
                         $scope.lanes[lane.id] = lane;
                         if (lane.ownItem) {
                             lane.ownItem.forEach(function(item) {
-                                item.priorityText = "Normal";
+                                item.priorityText = "Medium";
 
                                 switch(item.points) {
                                     case '1':
                                         item.priorityText = 'Low';
                                     break;
                                     case '2':
-                                        item.priorityText = 'Normal';
+                                        item.priorityText = 'Medium';
                                     break;
                                     case '3':
                                         item.priorityText = 'High';
