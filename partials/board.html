@@ -45,12 +45,12 @@
                     <span data-ng-click="laneToggleHidden(lane)" 
                         data-ng-if="!lane.showHidden"
                         class="small" 
-                        style="cursor: pointer;">(Show Hidden)
+                        style="cursor: pointer;display: none;">(Show Hidden)
                     </span>
                     <span data-ng-click="laneToggleHidden(lane)" 
                         data-ng-if="lane.showHidden"
                         class="small" 
-                        style="cursor: pointer;">(Clear Hidden)
+                        style="cursor: pointer;display: none;">(Clear Hidden)
                     </span>
                     <span class="badge" style="display: none;" title="Column Items" data-ng-if="lane.collapsed">
                         {{ lane.ownItem.length || 0 }}
