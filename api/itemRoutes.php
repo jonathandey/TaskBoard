@@ -340,6 +340,30 @@ $app->post('/items/:itemId/upload/remove', function($itemId) use ($app, $jsonRes
     $app->response->setBody($jsonResponse->asJson());
 })->conditions(['itemId' => '\d+']);
 
+$app->post('/items/hide', function() use ($app, $jsonResponse) {
+    $data = json_decode($app->environment['slim.input']);
+
+    if(validateToken(false))
+    {
+        $item = R::load('item', $data->itemId);
+        if($item->id)
+        {
+            // Converts item to array
+            $before = $item->export();
+
+            $item->hidden = true;
+            R::store($item);
+
+            $actor = getUser();
+            logAction($actor->username . ' hid item ' . $item->title, $before, null, $data->itemId);
+            $jsonResponse->addAlert('success', $item->title . ' was hidden.');
+            $jsonResponse->addBeans(getBoards());  
+        }   
+    }
+
+    $app->response->setBody($jsonResponse->asJson());
+});
+
 // Remove an item.
 $app->post('/items/remove', function() use ($app, $jsonResponse) {
     $data = json_decode($app->environment['slim.input']);

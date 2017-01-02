@@ -42,7 +42,17 @@
                  data-ng-class="{'collapsed': lane.collapsed}" data-lane-id="{{ lane.id }}"
                  data-context-menu="onContextMenu(lane.id)" data-target="laneMenu">
                 <h3>{{ lane.name }}
-                    <span class="badge" title="Column Items" data-ng-if="lane.collapsed">
+                    <span data-ng-click="laneToggleHidden(lane)" 
+                        data-ng-if="!lane.showHidden"
+                        class="small" 
+                        style="cursor: pointer;">(Show Hidden)
+                    </span>
+                    <span data-ng-click="laneToggleHidden(lane)" 
+                        data-ng-if="lane.showHidden"
+                        class="small" 
+                        style="cursor: pointer;">(Clear Hidden)
+                    </span>
+                    <span class="badge" style="display: none;" title="Column Items" data-ng-if="lane.collapsed">
                         {{ lane.ownItem.length || 0 }}
                     </span>
                     <span class="fa fa-angle-double-down small shrink" title="Collapse Column"
@@ -54,7 +64,7 @@
                     <div><!-- Needed to fix sortable behavior when there are no items in a column. --></div>
                     <div class="boardItem clearfix"
                          data-ng-class="{'filtered': item.filtered, 'hidden': item.filtered && filter.hide}"
-                         data-ng-repeat="item in lane.ownItem | orderBy:'position':false"
+                         data-ng-repeat="item in lane.ownItem | orderBy:'position':false | filter:!hidden && !lane.showHidden"
                          data-ng-dblclick="openItem(item)"
                          style="background-color: {{ item.color }}"
                          data-item-id="{{ item.id }}"

@@ -32,11 +32,15 @@
                     </div>
                 </div>
                 <div class="view-item-actions row">
-                    <div class="text-center col-md-6">
+                    <div class="col-md-4 text-center">
                         <a class="btn btn-default" data-ng-class="{'disabled': viewItem.disabled}"
                            data-ng-click="editItem()">Edit Item</a>
                     </div>
-                    <div class="col-md-6 text-center">
+                    <div class="col-md-4 text-center">
+                        <a class="btn btn-default" data-ng-class="{'disabled': viewItem.disabled}"
+                           data-ng-click="hideItem()">Hide Item</a>
+                    </div>
+                    <div class="col-md-4 text-center">
                         <a class="btn btn-default" data-ng-class="{'disabled': viewItem.disabled}"
                            data-ng-click="deleteItem()">Delete Item</a>
                     </div>

@@ -100,6 +100,12 @@ function($http) {
             });
         },
 
+        hideItem: function(itemId) {
+            return $http.post('api/items/hide', {
+                itemId: itemId
+            });
+        },
+
         addItemComment: function(itemId, comment) {
             return $http.post('api/items/' + itemId + '/comment', {
                 text: comment

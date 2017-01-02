@@ -73,6 +73,42 @@ function ($scope, $window, BoardService) {
         $('.itemModal').modal('show');
     }
 
+    $scope.hideItem = function()
+    {
+        noty({
+            text: 'Are you sure you want to hide this item?',
+            layout: 'center',
+            type: 'information',
+            modal: true,
+            buttons: [
+                {
+                    addClass: 'btn btn-default',
+                    text: 'Ok',
+                    onClick: function($noty) {
+                        $noty.close();
+                        $scope.viewItem.disabled = true;
+
+                        BoardService.hideItem($scope.viewItem.id)
+                        .success(function(data) {
+                            $scope.alerts.showAlerts(data.alerts);
+                            if (data.alerts[0].type == 'success') {
+                                $scope.updateBoards(data);
+                                $('.itemViewModal').modal('hide');
+                            }
+                        });
+                    }
+                },
+                {
+                    addClass: 'btn btn-info',
+                    text: 'Cancel',
+                    onClick: function($noty) {
+                        $noty.close();
+                    }
+                }
+            ]
+        })   
+    }
+
     $scope.deleteItem = function() {
         noty({
             text: 'Deleting an item cannot be undone.<br>Continue?',

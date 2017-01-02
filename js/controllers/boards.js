@@ -255,6 +255,13 @@ function ($scope, $routeParams, $location, $interval, $window,
         });
     };
 
+    $scope.laneToggleHidden = function(lane) {
+        if(lane.showHidden)
+            return lane.showHidden = false;
+
+        return lane.showHidden = true;
+    }
+
     // This is not the Angular way.
     $scope.updateSortables = function() {
         var that = this.$parent;
