@@ -364,6 +364,30 @@ $app->post('/items/hide', function() use ($app, $jsonResponse) {
     $app->response->setBody($jsonResponse->asJson());
 });
 
+$app->post('/items/show', function() use ($app, $jsonResponse) {
+    $data = json_decode($app->environment['slim.input']);
+
+    if(validateToken(false))
+    {
+        $item = R::load('item', $data->itemId);
+        if($item->id)
+        {
+            // Converts item to array
+            $before = $item->export();
+
+            $item->hidden = null;
+            R::store($item);
+
+            $actor = getUser();
+            logAction($actor->username . ' showed item ' . $item->title, $before, null, $data->itemId);
+            $jsonResponse->addAlert('success', $item->title . ' was shown.');
+            $jsonResponse->addBeans(getBoards());  
+        }   
+    }
+
+    $app->response->setBody($jsonResponse->asJson());
+});
+
 // Remove an item.
 $app->post('/items/remove', function() use ($app, $jsonResponse) {
     $data = json_decode($app->environment['slim.input']);

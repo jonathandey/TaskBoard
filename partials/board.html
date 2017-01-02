@@ -64,7 +64,7 @@
                     <div><!-- Needed to fix sortable behavior when there are no items in a column. --></div>
                     <div class="boardItem clearfix"
                          data-ng-class="{'filtered': item.filtered, 'hidden': item.filtered && filter.hide}"
-                         data-ng-repeat="item in lane.ownItem | orderBy:'position':false | filter:!hidden && !lane.showHidden"
+                         data-ng-repeat="item in lane.ownItem | orderBy:'position':false | filter: itemHiddenFilter"
                          data-ng-dblclick="openItem(item)"
                          style="background-color: {{ item.color }}"
                          data-item-id="{{ item.id }}"

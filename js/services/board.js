@@ -106,6 +106,12 @@ function($http) {
             });
         },
 
+        showItem: function(itemId) {
+            return $http.post('api/items/show', {
+                itemId: itemId
+            });
+        },
+
         addItemComment: function(itemId, comment) {
             return $http.post('api/items/' + itemId + '/comment', {
                 text: comment

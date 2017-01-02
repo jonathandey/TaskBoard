@@ -73,8 +73,24 @@ function ($scope, $window, BoardService) {
         $('.itemModal').modal('show');
     }
 
-    $scope.hideItem = function()
+    $scope.itemToggleHidden = function()
     {
+        if($scope.viewItem.hidden)
+        {
+            $scope.viewItem.disabled = true;
+
+            BoardService.showItem($scope.viewItem.id)
+            .success(function(data) {
+                $scope.alerts.showAlerts(data.alerts);
+                if (data.alerts[0].type == 'success') {
+                    $scope.updateBoards(data);
+                    $('.itemViewModal').modal('hide');
+                }
+            });
+
+            return;          
+        }
+
         noty({
             text: 'Are you sure you want to hide this item?',
             layout: 'center',

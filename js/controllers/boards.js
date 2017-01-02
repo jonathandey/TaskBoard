@@ -106,6 +106,7 @@ function ($scope, $routeParams, $location, $interval, $window,
     $scope.boardNames = [];
     $scope.userNames = [];
     $scope.laneNames = [];
+    $scope.lanes = [];
     $scope.categories = [];
     $scope.currentBoard = {
         loading: true,
@@ -177,6 +178,7 @@ function ($scope, $routeParams, $location, $interval, $window,
 
                     board.ownLane.forEach(function(lane) {
                         $scope.laneNames[lane.id] = lane.name;
+                        $scope.lanes[lane.id] = lane;
                         if (lane.ownItem) {
                             lane.ownItem.forEach(function(item) {
                                 item.priorityText = "Normal";
@@ -260,6 +262,14 @@ function ($scope, $routeParams, $location, $interval, $window,
             return lane.showHidden = false;
 
         return lane.showHidden = true;
+    }
+
+    $scope.itemHiddenFilter = function(item)
+    {
+        if($scope.lanes[item.lane_id].showHidden)
+            return true;
+
+        return item.hidden != 1;
     }
 
     // This is not the Angular way.

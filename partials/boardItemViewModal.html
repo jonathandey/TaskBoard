@@ -37,8 +37,14 @@
                            data-ng-click="editItem()">Edit Item</a>
                     </div>
                     <div class="col-md-4 text-center">
-                        <a class="btn btn-default" data-ng-class="{'disabled': viewItem.disabled}"
-                           data-ng-click="hideItem()">Hide Item</a>
+                        <a class="btn btn-default" 
+                            data-ng-if="!viewItem.hidden"
+                            data-ng-class="{'disabled': viewItem.disabled}"
+                            data-ng-click="itemToggleHidden()">Hide Item</a>
+                        <a class="btn btn-default" 
+                            data-ng-if="viewItem.hidden"
+                            data-ng-class="{'disabled': viewItem.disabled}"
+                            data-ng-click="itemToggleHidden()">Show Item</a>
                     </div>
                     <div class="col-md-4 text-center">
                         <a class="btn btn-default" data-ng-class="{'disabled': viewItem.disabled}"
