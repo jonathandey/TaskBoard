@@ -23,6 +23,8 @@ var paths = {
 }
 
 gulp.task('scripts', function() {
+	del('js/app.min.js');
+
 	return gulp.src(paths.scripts)
 		.pipe(sourcemaps.init())
 			.pipe(uglify())
@@ -32,7 +34,9 @@ gulp.task('scripts', function() {
 	;
 });
 
-gulp.task('libraries', ['clean'], function() {
+gulp.task('libraries', function() {
+	del('lib/libs.min.js');
+
 	return gulp.src(paths.libraries)
 		.pipe(sourcemaps.init())
 			.pipe(uglify())
