@@ -1,5 +1,7 @@
 {
 	"name": "Taskboard",
+	"version": "0.0.1",
+	"description": "",
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
