@@ -115,6 +115,11 @@
                             Edit Item
                         </a>
                     </li>
+                    <li role="presentation" data-ng-if="!contextItem.complete">
+                        <a role="menuitem" class="default-cursor" data-ng-click="completeItem()">
+                            Complete Item
+                        </a>
+                    </li>
                     <li role="presentation" data-ng-if="currentUser.isAdmin">
                         <a role="menuitem" class="default-cursor" data-ng-click="removeItem()">
                             Delete Item

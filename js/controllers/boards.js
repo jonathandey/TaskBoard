@@ -16,6 +16,11 @@ function ($scope, $routeParams, $location, $interval, $window,
         $location.path(path);
     }
 
+    var STATUS_COLORS = {
+        complete: '#ffbaba',
+        outstanding: '#c3f4b5'
+    }
+
     $scope.alerts = AlertService;
     $scope.marked = function(text) {
         if (text) {
@@ -55,6 +60,18 @@ function ($scope, $routeParams, $location, $interval, $window,
     $scope.selectBoard = function() {
         $location.path('boards/' + $scope.boardNames.current);
     };
+
+    $scope.completeItem = function()
+    {
+        $scope.contextItem.color = STATUS_COLORS.complete;
+        $scope.contextItem.itemId = $scope.contextItem.id;
+
+        BoardService.updateItem($scope.contextItem)
+        .success(function(data) {
+            $scope.contextItem.complete = true;
+            $scope.updateBoards(data.data);
+        });
+    }
 
     $scope.openEditItem = function() {
         $scope.itemFormData.loadItem($scope.contextItem);
@@ -211,6 +228,10 @@ function ($scope, $routeParams, $location, $interval, $window,
 
                                     item.created_at_text = date.format('DD/MM/YYYY');
                                 }
+
+                                item.complete = false;
+                                if(item.color == STATUS_COLORS.complete)
+                                    item.complete = true;
 
                                 item.position = parseInt(item.position);
                             });

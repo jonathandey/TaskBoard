@@ -76,9 +76,12 @@ $app->post('/items/:itemId', function($itemId) use ($app, $jsonResponse) {
             $item->assignee = $data->assignee;
             $item->category = $data->category;
             $item->color = $data->color;
-            $item->dueDate = $data->dueDate;
+            
+            if(isset($data->dueDate))
+                $item->dueDate = $data->dueDate;
+            
             $item->points = $data->points;
-            if ($data->lane != $item->lane_id) {
+            if (isset($data->lane) && $data->lane != $item->lane_id) {
                 $item->position = getNextItemPosition($data->lane);
                 $item->lane = R::load('lane', $data->lane);
             } else {
