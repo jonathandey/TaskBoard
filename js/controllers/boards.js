@@ -17,8 +17,8 @@ function ($scope, $routeParams, $location, $interval, $window,
     }
 
     var STATUS_COLORS = {
-        complete: '#ffbaba',
-        outstanding: '#c3f4b5'
+        complete: '#ffbaba', // sams as done
+        outstanding: '#c3f4b5' // same as todo
     }
 
     $scope.alerts = AlertService;

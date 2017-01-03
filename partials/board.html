@@ -71,7 +71,7 @@
                          data-context-menu="onContextMenu(lane.id, item)" data-target="itemMenu">
                         <div class="itemHeader">
                             <h4>{{ item.title }}</h4>
-                            <span class="badge" title="Priority">{{ item.priorityText }}</span>
+                            <span class="badge" title="Priority" style="display: none;">{{ item.priorityText }}</span>
                         </div>
                         <div class="description" data-ng-bind-html="marked(item.description)"></div>
                         <p class="assignee">
@@ -117,7 +117,7 @@
                     </li>
                     <li role="presentation" data-ng-if="!contextItem.complete">
                         <a role="menuitem" class="default-cursor" data-ng-click="completeItem()">
-                            Complete Item
+                            Mark as Done
                         </a>
                     </li>
                     <li role="presentation" data-ng-if="currentUser.isAdmin">
