@@ -212,7 +212,8 @@ textarea {
 .boardColumn > h3 {
     margin: 0;
     padding: 5px;
-    background-color: #e0edf2;
+    color: #fff;
+    background-color: #61a2d2;
     border-bottom: 1px solid rgba(51,51,51,.05);
 }
 .itemContainer {
@@ -497,7 +498,8 @@ label.wide {
     margin: 0 0 5px 0;
     padding: 7px;
     border-radius: 5px 5px 0 0;
-    background-color: #e0edf2;
+    color: #fff;
+    background-color: #61a2d2;
     border-bottom: 1px solid rgba(51,51,51,.05);
 }
 .widget-content {
