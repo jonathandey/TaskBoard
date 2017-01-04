@@ -68,7 +68,7 @@
                     </div>
                     <div class="boardItem clearfix"
                          data-ng-class="{'filtered': item.filtered, 'hidden': item.filtered && filter.hide}"
-                         data-ng-repeat="item in lane.ownItem | orderBy: ['-due_date', '-created_at'] | filter: itemHiddenFilter"
+                         data-ng-repeat="item in lane.ownItem | orderBy: ['-created_at', '-due_date'] | filter: itemHiddenFilter"
                          data-ng-dblclick="openItem(item)"
                          style="background-color: {{ item.color }}"
                          data-item-id="{{ item.id }}"
